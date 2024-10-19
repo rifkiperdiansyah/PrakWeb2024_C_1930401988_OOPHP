@@ -1,31 +1,33 @@
 <?php
 
+use Produk as GlobalProduk;
+
 class Produk{
+  public $judul,
+          $penulis,
+          $penerbit,
+          $harga;
 
-    public $judul = "Judul",
-            $penulis = "Penulis",
-            $penerbit = "Penerbit",
-            $harga = 0;
+  //Constructor
+  public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0){
+    $this->judul = $judul;
+    $this->penulis = $penulis;
+    $this->penerbit = $penerbit;
+    $this->harga = $harga;
+  }
 
-
-            public function getLabel() {
-                return "$this->penulis, $this->penerbit";
-            }
+  //Method
+  public function getLabel(){
+    return "$this->penulis, $this->penerbit";
+  }
 }
 
-$produk3 = new Produk();
-$produk3 ->judul ="Naruto";
-$produk3 ->penulis = "masashi";
-$produk3 ->penerbit = "Shonen Jump";
-$produk3 ->harga = 30000;
+$produk1 = new Produk("Naruto","Masashi Kishimoto","Shonen Jump",30000);
+$produk2 = new Produk("Uncharted","Neil Druckman","Sony Computer",25000);
+$produk3 = new GlobalProduk("Dragon Ball");
 
-
-$produk4 = new Produk();
-$produk4 ->judul ="sasuke";
-$produk4 ->penulis = "masashi";
-$produk4 ->penerbit = "Shonen Jump";
-$produk4 ->harga = 30000;
-
-echo "komik :" . $produk3->getLabel();
+echo "Komik : " . $produk1->getLabel();
 echo "<br>";
-echo "Game :" . $produk4->getLabel();
+echo "Game : " . $produk2->getLabel();
+echo "<br>";
+var_dump($produk3);
